@@ -25,7 +25,7 @@ module.exports = {
 
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#usage
     // ESLint typescript rules
-    'plugin:@typescript-eslint/recommended',
+    // 'plugin:@typescript-eslint/recommended',
 
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
@@ -46,11 +46,11 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-files
     // required to lint *.vue files
     'vue'
-    
+
     // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-509292674
     // Prettier has not been included as plugin to avoid performance impact
     // add it as an extension for your IDE
-    
+
   ],
 
   globals: {
@@ -68,7 +68,7 @@ module.exports = {
 
   // add your custom rules here
   rules: {
-    
+
     'prefer-promise-reject-errors': 'off',
 
     quotes: ['warn', 'single', { avoidEscape: true }],
@@ -83,7 +83,7 @@ module.exports = {
     // does not work with type definitions
     'no-unused-vars': 'off',
 
-    // allow debugger during development only
+    // 只允许在开发环境中启动debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
 }

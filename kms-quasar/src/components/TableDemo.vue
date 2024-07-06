@@ -1,35 +1,24 @@
 <template>
-  <q-card class="no-shadow" bordered>
-    <q-card-section>
-      <div class="text-h6 text-grey-8">
-        Basic
-      </div>
-    </q-card-section>
-    <q-separator></q-separator>
-    <q-card-section class="q-pa-none">
-      <q-table square class="no-shadow"
-        title="Treats"
-        :rows="data"
-        :columns="columns"
-        row-key="name"
-        :filter="filter"
-      >
-        <template v-slot:top-right>
-          <q-input v-if="show_filter" filled borderless dense debounce="300" v-model="filter" placeholder="Search">
-            <template v-slot:append>
-              <q-icon name="search"/>
-            </template>
-          </q-input>
 
-          <q-btn class="q-ml-sm" icon="filter_list" @click="show_filter=!show_filter" flat/>
-        </template>
-      </q-table>
-    </q-card-section>
-  </q-card>
+
+
+    <q-table square class="no-shadow" title="Treats" :rows="data" :columns="columns" row-key="name"></q-table>
+
+
+
 </template>
 
-<script>
-import {defineComponent, ref} from 'vue'
+<script setup lang="ts">
+
+import { defineComponent, ref } from 'vue'
+
+import {QTableColumn,QTableProps} from 'quasar'
+
+interface TblRowT{
+
+  name:string
+
+}
 
 
 const data = [
@@ -134,52 +123,38 @@ const data = [
     iron: '6%'
   }
 ];
-const columns = [
+const columns:Array<QTableColumn> = [
   {
     name: 'name',
     required: true,
     label: 'Dessert (100g serving)',
     align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
+    field: (row:TblRowT) => row.name,
+    format: (val:string) => `${val}`,
     sortable: true
   },
-  {name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true},
-  {name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true},
-  {name: 'carbs', label: 'Carbs (g)', field: 'carbs'},
-  {name: 'protein', label: 'Protein (g)', field: 'protein'},
-  {name: 'sodium', label: 'Sodium (mg)', field: 'sodium'},
+  { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
+  { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
+  { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
+  { name: 'protein', label: 'Protein (g)', field: 'protein' },
+  { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
   {
     name: 'calcium',
     label: 'Calcium (%)',
     field: 'calcium',
     sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    sort: (a:string, b:string) => parseInt(a, 10) - parseInt(b, 10)
   },
   {
     name: 'iron',
     label: 'Iron (%)',
     field: 'iron',
     sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    sort: (a:string, b:string) => parseInt(a, 10) - parseInt(b, 10)
   }
 ];
 
-export default defineComponent({
-  name: 'TableBasic',
-  setup() {
-    const show_filter = ref(false)
 
-    return {
-      filter: ref(''),
-      show_filter,
-      data,
-      columns
-    }
-  }
-})
+
 </script>
 
-<style scoped>
-
-</style>
