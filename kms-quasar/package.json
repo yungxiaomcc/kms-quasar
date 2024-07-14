@@ -15,8 +15,15 @@
   "dependencies": {
     "@quasar/extras": "^1.16.4",
     "@vueup/vue-quill": "^1.2.0",
+    "@wangeditor/basic-modules": "file:wangeditor-basic-modules-v1.2.1-alpha.1.tgz",
+    "@wangeditor/code-highlight": "file:wangeditor-code-highlight-v1.1.0.tgz",
+    "@wangeditor/core": "file:wangeditor-core-v1.2.0.tgz",
+    "@wangeditor/editor": "file:wangeditor-editor-v5.2.1-alpha.1.tgz",
     "@wangeditor/editor-for-vue": "^5.1.12",
-
+    "@wangeditor/list-module": "file:wangeditor-list-module-v1.1.0.tgz",
+    "@wangeditor/table-module": "file:wangeditor-table-module-v1.2.1-alpha.1.tgz",
+    "@wangeditor/upload-image-module": "file:wangeditor-upload-image-module-v1.1.0.tgz",
+    "@wangeditor/video-module": "file:wangeditor-video-module-v1.2.0.tgz",
     "axios": "^1.2.1",
     "pinia": "^2.0.11",
     "quasar": "^2.16.0",

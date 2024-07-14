@@ -10,7 +10,8 @@
       filled
       style="max-width: 300px"
     />
-    <q-btn color="amber" glossy label="Amber" @click="handGetHtml" />
+    <q-btn color="amber" glossy label="获取富文本html" @click="handGetHtml" />
+    <q-btn color="amber" glossy label="获取富文本json" @click="handGetJson" />
 
 
   </div>
@@ -106,6 +107,14 @@ const handGetHtml = ()=>{
 
   console.log(content)
 }
+
+const handGetJson = ()=>{
+  const content  = editorRef.value.children
+
+  console.log(content)
+}
+
+
 
 
 </script>
